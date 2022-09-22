@@ -6,3 +6,10 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+media
+venv
