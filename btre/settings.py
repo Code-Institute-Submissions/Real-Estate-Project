@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['real-estate-project-yc.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
