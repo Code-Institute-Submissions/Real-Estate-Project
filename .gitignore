@@ -11,5 +11,6 @@ node_modules/
 *.pyc
 local_settings.py
 db.sqlite3
-media
+/media
 venv
+/static
