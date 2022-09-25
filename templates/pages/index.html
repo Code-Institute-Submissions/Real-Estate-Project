@@ -1,6 +1,9 @@
 {% extends 'base.html' %} 
+
 {% load humanize %}
+
 {% block content %}
+
 <!-- Showcase -->
 <section id="showcase">
     <div class="container text-center">
@@ -13,6 +16,7 @@
             voluptatum tempore! Consectetur, id commodi!</p>
           <div class="search">
             <form action="{% url 'search' %}">
+
               <!-- Form Row 1 -->
               <div class="form-row">
                 <div class="col-md-4 mb-3">
@@ -33,6 +37,7 @@
                   </select>
                 </div>
               </div>
+
               <!-- Form Row 2 -->
               <div class="form-row">
                 <div class="col-md-6 mb-3">
@@ -45,7 +50,7 @@
                   </select>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <select class="form-control" id="type">
+                  <select name="price" class="form-control" id="type">
                     <option selected="true" disabled="disabled">Max Price (Any)</option>
                     {% for key,value in price_choices.items %}
                       <option value="{{ key }}">{{ value }}</option>
