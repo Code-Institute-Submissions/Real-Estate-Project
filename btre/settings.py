@@ -154,6 +154,11 @@ EMAIL_HOST_USER='traversy.brad@gmail.com'
 EMAIL_HOST_PASSWORD='Bt121212aa'
 EMAIL_USE_TLS=True
 
+try:
+    from .local_settings import *
+except ImportError
+    pass
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
