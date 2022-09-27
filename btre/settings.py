@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-debug = os.getenv(‘DEBUG’, ‘FALSE’) is ‘TRUE’
+debug = os.getenv('DEBUG', 'FALSE') is 'TRUE'
 
 ALLOWED_HOSTS = ['real-estate-project-yc.herokuapp.com', 'localhost']
 
