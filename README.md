@@ -42,15 +42,6 @@
 * Navbar is fixed on top to facilitate users to navigate through pages easily
 * A Small dropdown menu navigation is the same on all pages at small screen sizes to ensure easy navigation
 
-
-### 4. Skeleton
-
-* Wireframes were created with Balsamiq. <br>
-* The project was developed from initial wireframes, and some modifications were made during the development process in response to user feedback
-
-
-<details>
-<summary>Click to see wireframes:</summary>
 <br>
 
 [HomePage]() <br>
@@ -133,7 +124,6 @@ I would like to...
 
 ## Frameworks, Libraries & Programs Used
 
-+ Balsamiq: Balsamiq was used to create the wireframes during the design process
 + Favicon Generator: Used to create favicon used on the website
 + Git: Gitpod IDE was used for version control by utilizing the Gitpod terminal to commit and Push to GitHub
 + GitHub: GitHub respository is used to store the project's code after being pushed from Gitpod
