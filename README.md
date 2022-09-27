@@ -134,6 +134,97 @@ I would like to...
 
 ## Testing and Code Validation
 
+## **Automated tests**
+
+#
+## **Validation and accessibility**
+
+### **Lighthouse report**
+<details>
+  <summary>Reports</summary>
+  
+  All pages of the app were tested using the lighthouse function built into the Google Chrome browser on incognito mode.
+  
+  <img width="300" src="static/assets/img/readme_img/testing_img/home-page-loggedout.png">
+  <img width="300" src="static/assets/img/readme_img/testing_img/home-page-loggedin.png">
+  <img width="300" src="static/assets/img/readme_img/testing_img/signin-page.png">
+  <img width="300" src="static/assets/img/readme_img/testing_img/tracklistpage.png">
+  <img width="300" src="static/assets/img/readme_img/testing_img/ratetrack-page.png">
+  <img width="300" src="static/assets/img/readme_img/testing_img/mytracks-page.png">
+  <img width="300" src="static/assets/img/readme_img/testing_img/addtrack-page.png">
+ 
+  
+</details>
+  
+
+### **CSS Validation**
+  <details>
+  <summary>CSS Validator results</summary>
+  Only the custom CSS file was tested (style.css)
+  <img width="700" src="">
+  
+  </details>
+  
+### **HTML Validation**  
+  <details>
+  <summary>HTML Validator results</summary>
+  All HTML was passed through the validator retreived from the source code within devtools on Chrome.
+
+  <img width="700" src="">
+  
+  </details>
+  
+ ### **Python Validation (PEP8)**
+  <details>
+  <summary>PEP8 Validator results</summary>
+
+###  **Apps**
+
+All files for btre passed through PEP8 without errors
+
+<img width="700" src="">
+
+All files for pages app passed through PEP8 without errors
+
+<img width="700" src="">
+
+All files for contacts app passed through PEP8 without errors
+
+<img width="700" src="">
+
+All files for listings app passed through PEP8 without errors
+
+<img width="700" src="">
+
+All files for realtors app passed through PEP8 without errors
+
+<img width="700" src="">
+
+
+  </details>
+
+#
+
+## **Manual Testing**
+
+### Manual Testing of User Input and Functions
+
+  I systematically tested all user inputs and functionality in the website to compare feedback/results against expected results.  
+  Any unexpected output/outcomes were fixed.  
+  
+### Desktop
+  
+  Google Chrome/Mozilla Firefox: All aspects of the site work perfectly fine. Pages load quickly, all features are working and found no problems with CRUD, registering and logging in or out, submitting inquiries, etc.
+
+  * Every button works and redirects to the next page quickly<br>
+  * Url's load correctly on both the About page and the Featured Listings page<br>
+  * (Deactivated function) Sign up form sends an automated email from a gmail account to the user to verify the email address; this works as it should.  
+
+### Mobile
+
+  Tested all aspects of the site via three devices, Apple Iphone 11, Samsung S20 and Samsung S7 tablet. The site reacts well to different devices, responsiveness works well, including on Apple's browser Safari.
+
+
 
 ## Deployment
 
