@@ -17,7 +17,8 @@ def index(request):
   }
 
   return render(request, 'listings/listings.html', context)
-  
+
+
 def listing(request, listing_id):
   listing = get_object_or_404(Listing, pk=listing_id)
 
@@ -26,6 +27,7 @@ def listing(request, listing_id):
   }
 
   return render(request, 'listings/listing.html', context)
+
 
 def search(request):
   queryset_list = Listing.objects.order_by('-list_date')
@@ -59,7 +61,7 @@ def search(request):
     price = request.GET['price']
     if price:
       queryset_list = queryset_list.filter(price__lte=price)
-  
+
   context = {
     'state_choices': state_choices,
     'bedroom_choices': bedroom_choices,

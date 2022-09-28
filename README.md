@@ -10,7 +10,7 @@
 [Link to the final project](https://real-estate-project-yc.herokuapp.com/)
 #
 
-## Overview
+## **Overview**
 A real estate listings website built with `python` `django` `javascript` `bootstrap`.
 
 A simple, user-friendly and reponsive website developed using Python Django for the back-end, HTML, CSS, JavaScript and Bootstrap for the front-end, and PostgresQL for a database.
@@ -49,21 +49,21 @@ There is some standard Django functionality that's there by default. In addition
 put.
 So, we can publish and unpublish really easily.
 
-
+#
 ### Python version (Recommended):	3.8 Version 
 Python 3.8 introduces some new syntax to the language, as well as a few small modifications to existing behavior and, most importantly, a slew of performance improvements, following in the footsteps of the previous 3.7 version.
-
+#
 ### Programming Language Used:	Python Django Language
 Django is a high-level Python web framework for building safe and maintainable websites quickly. Django is a web framework built by experienced developers that takes care of a lot of the heavy lifting so you can focus on developing your app instead of reinventing the wheel.
-
+#
 ### Project Type:	Web Application
 A web application, unlike computer-based software programs that operate locally on the device’s operating system, is application software that runs on a web server. The user uses a web browser with an active network connection to access web apps.
-
+#
 ### Database : PostgreSQL
 (https://www.postgresql.org/)
 
-
-## User Experience
+#
+## **User Experience**
 
 ### User Stories
 
@@ -87,7 +87,7 @@ A web application, unlike computer-based software programs that operate locally 
 
 #
 
-### Scope
+### **Scope**
 
 * A simple, straightforward, intuitive UX experience
 * An explicit content
@@ -95,17 +95,15 @@ A web application, unlike computer-based software programs that operate locally 
 * A site that is visually appealing on most devices
 
 
-### Structure
+### **Structure**
 
 * A clear and straightforward layout is in place to ensure users can navigate intuitively and have a leisurely experience
 * Navbar is fixed on top to facilitate users to navigate through pages easily
 * A Small dropdown menu navigation is the same on all pages at small screen sizes to ensure easy navigation
 * Functionalities such as register, search and make an inquiry generate straighforward forms to allow useres to use the features without issues 
 
-<br>
-
-
-### Surface
+#
+## **Design**
 
 * Colours
 
@@ -121,7 +119,7 @@ I used [Coolors](https://coolors.co/) to generate a colour palette based on the 
 All images (background, listings, realtors) have been downloaded from [Pexels](https://www.pexels.com/).
 
 #
-## Existing Features
+## **Existing Features**
 
 1. Homepage
 
@@ -165,8 +163,8 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 
 <img width="600" src="btre/static/img/login.png">
 
-
-## Frameworks, Libraries & Programs Used
+#
+## **Frameworks, Libraries & Programs Used**
 
 + Favicon Generator: Used to create favicon used on the website
 + Git: Gitpod IDE was used for version control by utilizing the Gitpod terminal to commit and Push to GitHub
@@ -177,13 +175,10 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 + Pillow: Python Imaging Library (https://pypi.org/project/Pillow/)
 + Cloudinary Platform: to host images (https://cloudinary.com/)
 
-
-## Testing and Code Validation
-
-## **Automated tests**
-
 #
-## **Validation and accessibility**
+## **Testing and Code Validation & Accessibility**
+
+### **Automated tests**
 
 ### **Lighthouse report**
 
@@ -199,62 +194,51 @@ All pages of the app were tested using the lighthouse function built into the Go
 
 [Link to the Lighthouse report for Login page](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Freal-estate-project-yc.herokuapp.com%2Faccounts%2Flogin&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext)
   
-
+#
 ### **CSS Validation**
   
   Only the custom CSS file was tested (style.css)
   
   <img width="600" src="btre/static/img/css_validator.png">
-  
-  
-  ### **HTML Validation**  
+
+# 
+### **HTML Validation**  
  
   All HTML was passed through the validator retreived from the source code within devtools on Chrome.
 
   [link to w3c validator result](https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc=https%3A%2F%2Freal-estate-project-yc.herokuapp.com%2F)
 
- 
-  
- ### **Python Validation (PEP8)**
+#
+### **Python Validation (PEP8)**
 
 I have tried to test my code with https://pep8online.com/, but their domain has expired. 
-As suggested by a member of the Slack community, I ran pylint in gitpod instead.
+As a workaround, I have added a PEP8 validator to my Gitpod Workspace directly by following these steps:
+- Run the command pip3 install pycodestyle. Note that this extension may already be installed, in which case this command will do nothing.
+- In your workspace, press Ctrl+Shift+P (or Cmd+Shift+P on Mac).
+- Type the word linter into the search bar that appears, and click on Python: Select Linter from the filtered results.
+- Select pycodestyle from the list.
+- PEP8 errors will now be underlined in red, as well as being listed in the PROBLEMS tab beside your terminal.
 
+Existing errors are either unsolved (like indentation errors) or have been purposely ignored as they do not affect code functionality(like line too long errors).
 <details>
-<summary>Below are screenshots of the result generated running the command in the terminal</summary>
-<img width="500" src="btre/static/img/pylint-1.png">
-
-<img width="500" src="btre/static/img/pylint-2.png">
-
-<img width="500" src="btre/static/img/pylint-3.png">
-
-<img width="500" src="btre/static/img/pylint-4.png">
-
-<img width="500" src="btre/static/img/pylint-5.png">
-
-<img width="500" src="btre/static/img/pylint-6.png">
-
-<img width="500" src="btre/static/img/pylint-7.png">
-
-<img width="500" src="btre/static/img/pylint-8.png">
-
-<img width="500" src="btre/static/img/pylint-9.png">
-
-<img width="500" src="btre/static/img/pylint-10.png">
-
-<img width="500" src="btre/static/img/pylint-11.png">
-
-<img width="500" src="btre/static/img/pylint-12.png">
-
+<summary>Screenshots of results of python files that presented problems</summary>
+<img width="500" src="btre/static/img/pycode-1.png">
+<img width="500" src="btre/static/img/pycode-2.png">
+<img width="500" src="btre/static/img/pycode-3.png">
+<img width="500" src="btre/static/img/pycode-4.png">
+<img width="500" src="btre/static/img/pycode-5.png">
+<img width="500" src="btre/static/img/pycode-6.png">
+<img width="500" src="btre/static/img/pycode-7.png">
+<img width="500" src="btre/static/img/pycode-8.png">
+<img width="500" src="btre/static/img/pycode-9.png">
+<img width="500" src="btre/static/img/pycode-10.png">
+<img width="500" src="btre/static/img/pycode-11.png">
 </details>
 
 #
+### **Manual Testing**
 
-## **Manual Testing**
-
-### Manual Testing of User Input and Functions
-
-  I systematically tested all user inputs and functionality in the website to compare feedback/results against expected results.  
+  I systematically manually tested all user inputs and functions in the website to compare feedback/results against expected results.  
   Any unexpected output/outcomes were fixed.  
   
 ### Desktop
@@ -263,7 +247,7 @@ As suggested by a member of the Slack community, I ran pylint in gitpod instead.
 
   * Every button works and redirects to the next page quickly<br>
   * Url's load correctly on both the About page and the Featured Listings page<br>
-  * (Deactivated function) Sign up form sends an automated email from a gmail account to the user to verify the email address; this works as it should.  
+  * (Disabled function) Sign up form sends an automated email from a gmail account to the user to verify the email address; this works as it should.  
 
 ### Mobile
 
@@ -333,12 +317,14 @@ Press Enter. Your local clone will be created
 
 </details>
 
-5. **Run Server**
+#
+### Run Server
 
 ```sh
 python manage.py runserver 
 ```
 
+#
 ## Acknowledgements
 
 - Code institute for the amazing Tutors on the course
