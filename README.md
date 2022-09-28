@@ -1,25 +1,43 @@
-<h1 align=center>Real Estate Project</h1>
+## <h1 align=center>Real Estate Project</h1>
 
 
 <br>
-<img src="/Amiresponsive.png">
-
-<br>
-
 
 #
 [Here is a link to the final project](https://real-estate-project-yc.herokuapp.com/)
 #
+
+A real estate listings website built with `python` `django` `bootstrap`.
+
+A simple, reponsive  website developed using Python Django, HTML, CSS, JavaScript and Bootstrap.
+
+# Python version (Recommended):	3.8 Version
+Python 3.8 introduces some new syntax to the language, as well as a few small modifications to existing behavior and, most importantly, a slew of performance improvements, following in the footsteps of the previous 3.7 version.
+
+# Programming Language Used:	Python Django Language
+Django is a high-level Python web framework for building safe and maintainable websites quickly. Django is a web framework built by experienced developers that takes care of a lot of the heavy lifting so you can focus on developing your app instead of reinventing the wheel.
+
+# Project Type:	Web Application
+A web application, unlike computer-based software programs that operate locally on the device’s operating system, is application software that runs on a web server. The user uses a web browser with an active network connection to access web apps.
+
+# Database : PostgresSQL
+(https://www.postgresql.org/)
 
 ## User Experience
 
 ### User Stories
 
 1. As a user, I would like to be able to:
+- Register for an account
+- Login with my credentials
+- Submit an inquiry
+- Use the search box
+- View submitted inquiries
 
-
-2. As a logged in user, I would like to be able to:
-
+2. As the admin, I would like to be able to:
+- Add/Edit/Delete Realtors
+- Add/Edit/Delete Listings
+- Add/Edit/Delete Users
 
 #
 ### 1. Strategy
@@ -44,17 +62,6 @@
 
 <br>
 
-[HomePage]() <br>
-[Page]() <br>
-[Page]() <br>
-[Page]() <br>
-[HomePage mobile]() <br>
-[mobile]() <br>
-[mobile]() <br>
-[mobile]() <br>
-
-
-</details>
 
 ### 5. Surface
 
@@ -66,24 +73,18 @@ I used [Coolors](https://coolors.co/) to generate a colour palette based on the 
 <summary>Click to see Colours:</summary>
 <br>
 
-![Main colours]()<br>
+![Main colours](https://coolors.co/palette/264653-2a9d8f-e9c46a-f4a261-e76f51)<br>
 
 </details>
 
-
-**Font Selection**
+**Pictures**
  
-Two fonts were chosen with [Google Fonts](https://fonts.google.com/) to be used across the entire site.
+All images (background, listings, realtors) have been downloaded from [Pexels](https://www.pexels.com/).
 
-The chosen fonts were ... , ... as back up fonts for lists, forms, buttons and paragraphs.
 #
 ## Existing Features
 
-### **Navbar**
-
-+ Fixed Navbar to allow the user easy access to all pages
-
-1. 
+1. Fixed Navbar to allow the user easy access to all pages
 
 <img width="700" src="">
 
@@ -127,10 +128,9 @@ I would like to...
 + Favicon Generator: Used to create favicon used on the website
 + Git: Gitpod IDE was used for version control by utilizing the Gitpod terminal to commit and Push to GitHub
 + GitHub: GitHub respository is used to store the project's code after being pushed from Gitpod
-+ Google Fonts: Google fonts are used to add fonts for aesthetic and UX purposes
 + Django: Framework used to add structure to the platform
 + Bootstrap4: Framework used to add structure and responsiveness
-+ AmIResponsive: Used to generate mockup image
++ Pillow: Python Imaging Library (https://pypi.org/project/Pillow/)
 
 ## Testing and Code Validation
 
@@ -238,31 +238,14 @@ All files for realtors app passed through PEP8 without errors
 
  2. Setting up Heroku
   * NB Due to security issues connecting github directly to heroku (at the time this project was deployed),
-    first you must log into your heroku account via the terminal in gitpod (more info on this further down).
-      
+    first you must log into your heroku account via the terminal in gitpod (more info on this further down).  
     2.1 Next, navigate to the [Heroku](https://www.heroku.com/) website
-
     2.2 Login to Heroku
-    
-    <img width="300" src="static/assets/img/readme_img/heroku/herokulogin.png">
-
-    2.3 Click on `New` (top right) and Create a new app
-    
-    <img width="300" src="static/assets/img/readme_img/heroku/herokunewapp.png">
-    
+    2.3 Click on `New` (top right) and Create a new app    
     2.4 Choose a project name and set your location
-    
-    <img width="400" src="static/assets/img/readme_img/heroku/herokucreateapp.png">
-
     2.5. Navigate to the `Resources` tab
-
-    <img width="700" src="static/assets/img/readme_img/heroku/herokuresourcestab.png">
-
     2.6. In the `Add ons` section, search for Heroku Postgres and select it on the list
-      - A pop up will appear, select, 'Hobby Dev' and click `Submit order form`
-    
-    <img width="700" src="static/assets/img/readme_img/heroku/herokupostgres.png">
-    
+      - A pop up will appear, select, 'Hobby Dev' and click `Submit order form`    
     2.7.1. Next, You would usually navigate to the `deploy` tab;
       - Click on connect to Github
       - Search for the repository named Metal-Re-Injection
@@ -273,16 +256,11 @@ All files for realtors app passed through PEP8 without errors
           - Then enter your heroku credentials,
           - Now you are logged into heroku in Gitpod
           - Once all code is commited and pushed to Github, simply push code from Gitpod to heroku using the command:<br>
-        <img width="500" src="static/assets/img/readme_img/heroku/pushheroku.png"><br>
           - Heroku will start the build process, this can be viewed under the `Activity` tab<br>
-        <img width="400" src="static/assets/img/readme_img/heroku/herokubuild.png"><br>
           - Once the build process has completed, navigate to `Open App`
           - The app should now be ready to view
-    
     2.8. Navigate to the settings tab
-    
     2.9.  Click on Config Vars, and add Cloudinary, Database URL (from Heroku-Postgres) and Secret key
-    <img width="700" src="static/assets/img/readme_img/heroku/configvarsheroku.png">
 
 </details>
 
