@@ -288,6 +288,11 @@ Press Enter. Your local clone will be created
 
 </details>
 
+5. **Run Server**
+
+```sh
+python manage.py runserver 
+```
 
 ## Acknowledgements
 
