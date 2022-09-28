@@ -7,23 +7,59 @@
 <br>
 
 #
-[Here is a link to the final project](https://real-estate-project-yc.herokuapp.com/)
+[Link to the final project](https://real-estate-project-yc.herokuapp.com/)
 #
 
+## Overview
 A real estate listings website built with `python` `django` `javascript` `bootstrap`.
 
-A simple, user-friendly and reponsive website developed using Python Django for the back-end, HTML, CSS, JavaScript and Bootstrap for the front-end, and PostgresQL for database.
+A simple, user-friendly and reponsive website developed using Python Django for the back-end, HTML, CSS, JavaScript and Bootstrap for the front-end, and PostgresQL for a database.
 
-# Python version (Recommended):	3.8 Version
+I tried to carry out the project with a practical manner as I would if I were building this for a client.
+
+The project consists of both a front-facing website and the admin area. 
+On the homepage there is a large search box with some fields to allow the user to filter among featured listings.
+The search functionality is asctually pretty simple: it shows how to build query sets and how to filter your data when you are fetching from the database.
+The user can search by keyword, city, state, number of bedrooms, and price. The bedrooms and price filters are a less than or equal to filter.
+The search results page has a form on the top to allow the user to keep on searching easily.
+Below the search box, we have the latest listings section, where will be placed whaever are the latest listings in the database.
+Finally, at the bottom of the page there is just some static markup with some services.
+
+On the about page we have some about data and three realtors; these can be added in the admin area, and they will automatically be shown in this section. For each realtor we have their name, phone number and email.
+On the right of the page there is a checkbox for seller of the month, which can be also chosen in the admin area, so whoever is seller of the month among the realtors will be automatically shown up right there.
+So, we have some dyniamic data on the about page as well.
+
+The featured listings page composes of several listings, which right now I have set to six per page. For each listing we have the main image, the price, and some other data. Clicking for more info takes us to the single listing page, where we have breadcrumbs, the title, at the top, the address, and the assigned realtor on the right of the page.
+So, realtors and listings have a relationship so that on the listings page we can access any of that particular realtor's information that we want. The idea is that each realtor is assigned certain listings.
+On the single listing page, below the main image we have some smaller images that open up in a lightbox. Lightbox 2 (https://lokeshdhakar.com/projects/lightbox2/) has been used for this.
+At the bottom we have some data like the sqft, the loft size, the price, description. Below the assigned realtor we have a 'make an inquiry' button: clicking on it opens up a module, and if the user is already registered and logged in from the front-facing website, the name and email sections of the module will be auto-populated from the database from that user.
+
+When registering for an account by filling all the required fields and then clicking on the register button, the user gets a little message. I have used Django messages for this, and formatted them with Bootstrap, and have also added a little bit of Javascript so the message disappears after three seconds.
+I didn't want the user to be direclty logged in after registering, but being redirected to the login page instead. Logging in takes the user to a dashboard, that is basically just a list of any inquiries that they have made.
+
+We are also going to have the following functionality: if the user sends an inquiry for a listing, they get a success message saying they'll get back
+to them. If the user tries to make another request
+on the same property, they're going to get an
+error saying they've already made that
+request.
+
+As regards the admin side, if I log in with an admin user first of all you can see that I have customized the colors
+to match the branding, and that I have added the logo on the top left-hand corner here if we go to this side
+There is some standard Django functionality that's there by default. In addition to that, we have realtors, listings (which we can also choose to unpublish by unchecking and saving, and then going back to the front-facing website) and contacts, where any inquiries that are made will be
+put.
+So, we can publish and unpublish really easily.
+
+
+### Python version (Recommended):	3.8 Version 
 Python 3.8 introduces some new syntax to the language, as well as a few small modifications to existing behavior and, most importantly, a slew of performance improvements, following in the footsteps of the previous 3.7 version.
 
-# Programming Language Used:	Python Django Language
+### Programming Language Used:	Python Django Language
 Django is a high-level Python web framework for building safe and maintainable websites quickly. Django is a web framework built by experienced developers that takes care of a lot of the heavy lifting so you can focus on developing your app instead of reinventing the wheel.
 
-# Project Type:	Web Application
+### Project Type:	Web Application
 A web application, unlike computer-based software programs that operate locally on the device’s operating system, is application software that runs on a web server. The user uses a web browser with an active network connection to access web apps.
 
-# Database : PostgreSQL
+### Database : PostgreSQL
 (https://www.postgresql.org/)
 
 
@@ -53,10 +89,10 @@ A web application, unlike computer-based software programs that operate locally 
 
 ### Scope
 
- * A simple, straightforward, intuitive UX experience
- * An explicit content
- * An easy navigation for the user through all of the features
- * A site that is visually appealing on most devices
+* A simple, straightforward, intuitive UX experience
+* An explicit content
+* An easy navigation for the user through all of the features
+* A site that is visually appealing on most devices
 
 
 ### Structure
@@ -89,45 +125,45 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 
 1. Homepage
 
-<img width="700" src="btre/static/img/homepage-1.png">
+<img width="600" src="btre/static/img/homepage-1.png">
 
-<img width="700" src="btre/static/img/homepage-2.png">
+<img width="600" src="btre/static/img/homepage-2.png">
 
-<img width="700" src="btre/static/img/homepage-3.png">
+<img width="600" src="btre/static/img/homepage-3.png">
 
 2. About Page
 
-<img width="700" src="btre/static/img/aboutpage-1.png">
+<img width="600" src="btre/static/img/aboutpage-1.png">
 
-<img width="700" src="btre/static/img/aboutpage-2.png">
+<img width="600" src="btre/static/img/aboutpage-2.png">
 
-<img width="700" src="btre/static/img/aboutpage-3.png">
+<img width="600" src="btre/static/img/aboutpage-3.png">
 
-<img width="700" src="btre/static/img/aboutpage-4.png">
+<img width="600" src="btre/static/img/aboutpage-4.png">
 
 3. Featured Listings Page
 
-<img width="700" src="btre/static/img/featured_list-1.png">
+<img width="600" src="btre/static/img/featured_list-1.png">
 
-<img width="700" src="btre/static/img/featured_list-2.png">
+<img width="600" src="btre/static/img/featured_list-2.png">
 
 4. Admin Panel
 
-<img width="700" src="btre/static/img/admin_panel-1.png">
+<img width="600" src="btre/static/img/admin_panel-1.png">
 
-<img width="700" src="btre/static/img/admin_panel-2.png">
+<img width="600" src="btre/static/img/admin_panel-2.png">
 
-<img width="700" src="btre/static/img/admin_panel-3.png">
+<img width="600" src="btre/static/img/admin_panel-3.png">
 
-<img width="700" src="btre/static/img/admin_panel-4.png">
+<img width="600" src="btre/static/img/admin_panel-4.png">
 
 5. Register Page
 
-<img width="700" src="btre/static/img/register.png">
+<img width="600" src="btre/static/img/register.png">
 
 6. Login Page
 
-<img width="700" src="btre/static/img/login.png">
+<img width="600" src="btre/static/img/login.png">
 
 
 ## Frameworks, Libraries & Programs Used
@@ -168,7 +204,7 @@ All pages of the app were tested using the lighthouse function built into the Go
   
   Only the custom CSS file was tested (style.css)
   
-  <img width="700" src="btre/static/img/css_validator.png">
+  <img width="600" src="btre/static/img/css_validator.png">
   
   
   ### **HTML Validation**  
@@ -180,33 +216,37 @@ All pages of the app were tested using the lighthouse function built into the Go
  
   
  ### **Python Validation (PEP8)**
-  <details>
-  <summary>PEP8 Validator results</summary>
 
-###  **Apps**
+I have tried to test my code with https://pep8online.com/, but their domain has expired. 
+As suggested by a member of the Slack community, I ran pylint in gitpod instead.
 
-All files for btre passed through PEP8 without errors
+<details>
+<summary>Below are screenshots of the result generated running the command in the terminal</summary>
+<img width="500" src="btre/static/img/pylint-1.png">
 
-<img width="700" src="">
+<img width="500" src="btre/static/img/pylint-2.png">
 
-All files for pages app passed through PEP8 without errors
+<img width="500" src="btre/static/img/pylint-3.png">
 
-<img width="700" src="">
+<img width="500" src="btre/static/img/pylint-4.png">
 
-All files for contacts app passed through PEP8 without errors
+<img width="500" src="btre/static/img/pylint-5.png">
 
-<img width="700" src="">
+<img width="500" src="btre/static/img/pylint-6.png">
 
-All files for listings app passed through PEP8 without errors
+<img width="500" src="btre/static/img/pylint-7.png">
 
-<img width="700" src="">
+<img width="500" src="btre/static/img/pylint-8.png">
 
-All files for realtors app passed through PEP8 without errors
+<img width="500" src="btre/static/img/pylint-9.png">
 
-<img width="700" src="">
+<img width="500" src="btre/static/img/pylint-10.png">
 
+<img width="500" src="btre/static/img/pylint-11.png">
 
-  </details>
+<img width="500" src="btre/static/img/pylint-12.png">
+
+</details>
 
 #
 
