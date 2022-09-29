@@ -1,10 +1,36 @@
-## <h1 align=center>Real Estate Project</h1>
+## <h1 align=center>**Real Estate Project**</h1>
 
 <br>
 
 <img width="700" src="btre/static/img/mockup.png">
 
+#
+
 <br>
+
+## **Table of Contents**
+
+- [Table of Contents](#table-of-contents)
+- [Briefing](#briefing)
+- [Overview](#overview)
+- [User Experience | UX](#user-experience--ux)
+  - [Administrative Functions](#administrtive-functions)
+  - [User Stories](#user-stories)
+  - [Scope](#scope)
+  - [Structure](#structure)
+  - [Design Choices](#design-choices)
+- [Existing Features](#existing-features)
+- [Technologies Used](#technologies-used)
+- [Testing, Code Validation & Accessibility](#testing-code-validation--accessibility)
+- [Aknowledgments](#acknowledgements)
+
+#
+## **Briefing**
+Fictional real estate for sale website. Real estate website's visitors can easily filter their searches by location, price, and other predefined criteria. Each property goes with a detailed description and property features, location, price, assigned realtor, and an image gallery. Buyer of real estate can make an inquiry for a listing by filling a form, and can view all the inquiries they have submitted by clicking on their dashboard.
+
+**Disclaimer:** This project was merely a learning exercise as well as my first sizeable project delving into Django and PostgreSQL & a few other used technologies.
+
+This project was created as part of the Full Stack Software Development course offered by Code Institute.
 
 #
 [Link to the final project](https://real-estate-project-yc.herokuapp.com/)
@@ -63,15 +89,25 @@ A web application, unlike computer-based software programs that operate locally 
 (https://www.postgresql.org/)
 
 #
-## **User Experience**
+## **User Experience | UX**
 
-### User Stories
+### **Administrative Functions**
+
+The application's administrative functions are intended to manage what each user can do within the system. Permissions such as adding, editing or removing a property, for example, should under no circumstances be given to the user of the application. Such functionalities must be assigned exclusively to the administrator.
+
+In the system, there will be the following user functionalities:
+
+- Admin: has permission in all areas of the system.
+- Users: can search for properties filtering through the featured listings using the search box, in addition to being able to make an inquiry for a listing they're interested in.
+
+### **User Stories**
 
 1. As a user, I should be able to:
 - Register for an account
-- Login
+- Log in and out of the application
 - Submit an inquiry
 - Use the search box
+- Access the dashboard
 
 2. As a logged in user, I should be able to:
 - View submitted inquiries by clicking on the dashboard
@@ -84,17 +120,23 @@ A web application, unlike computer-based software programs that operate locally 
 - Add/Edit/Delete Realtors
 - Add/Edit/Delete Listings
 - Add/Edit/Delete Users
+- View all screens users can view as well
 
 #
-
 ### **Scope**
 
+* A website whose purpose is immediately understood by the user.
+* Have a clear information on what the site is about and what it provides
+* Have an easy navigation that is consistent throughout the website
+* Consistent layout without any confusing elements
+* Accessibility considerations are taken throughout the site
 * A simple, straightforward, intuitive UX experience
 * An explicit content
 * An easy navigation for the user through all of the features
 * A site that is visually appealing on most devices
 
 
+#
 ### **Structure**
 
 * A clear and straightforward layout is in place to ensure users can navigate intuitively and have a leisurely experience
@@ -103,7 +145,7 @@ A web application, unlike computer-based software programs that operate locally 
 * Functionalities such as register, search and make an inquiry generate straighforward forms to allow useres to use the features without issues 
 
 #
-## **Design**
+### **Design Choices**
 
 * Colours
 
@@ -164,7 +206,7 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 <img width="600" src="btre/static/img/login.png">
 
 #
-## **Frameworks, Libraries & Programs Used**
+## **Technologies Used**
 
 + Favicon Generator: Used to create favicon used on the website
 + Git: Gitpod IDE was used for version control by utilizing the Gitpod terminal to commit and Push to GitHub
@@ -176,9 +218,10 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 + Cloudinary Platform: to host images (https://cloudinary.com/)
 
 #
-## **Testing and Code Validation & Accessibility**
+## **Testing, Code Validation & Accessibility**
 
 ### **Automated tests**
+<br>
 
 ### **Lighthouse report**
 
@@ -237,7 +280,7 @@ Existing errors are either unsolved (like indentation errors) or have been purpo
 
 #
 ### **Manual Testing**
-
+<br>
   I systematically manually tested all user inputs and functions in the website to compare feedback/results against expected results.  
   Any unexpected output/outcomes were fixed.  
   
@@ -332,3 +375,5 @@ python manage.py runserver
     when I started to lose faith, taking time out of his own day and duties to answer all of my questions with absolute perfection, and just generally being a Python God!
 - My family for their support, patience and testing
 - Everybody on Slack for tips, advice, quick fixes and support
+
+[Back to top ⇧](#table-of-contents)
