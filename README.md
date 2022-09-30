@@ -22,6 +22,7 @@
 - [Existing Features](#existing-features)
 - [Technologies Used](#technologies-used)
 - [Testing, Code Validation & Accessibility](#testing-code-validation--accessibility)
+- [Unfixed Bugs](#unfixed-bugs)
 - [Aknowledgments](#acknowledgements)
 
 #
@@ -368,7 +369,17 @@ python manage.py runserver
 ```
 
 #
-## Acknowledgements
+## **Unfixed Bugs**
+
+When trying to run the server in the gitpod workspace by typing the command above in the terminal, I get the following error:
+
+<img width="500" src="btre/static/img/pycode-1.png">
+
+I have managed to run the server anyway by typing the command `unset PGHOSTADDR` and pressing ENTER, then using the `python manage.py runserver` command. However, this must be done every time I try running the server in a new terminal.
+I'm not sure what is causing this bug, perhaps the reason is that I have built the entire project working in my virtual environment.
+
+#
+## **Acknowledgements**
 
 - Code institute for the amazing Tutors on the course
 - My brilliant Mentor Rohit Sharma for his patience, excellent advice on my code, pushing me back on track
