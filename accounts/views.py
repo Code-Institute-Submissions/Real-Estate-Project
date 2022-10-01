@@ -3,6 +3,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from contacts.models import Contact
 
+
 def register(request):
   if request.method == 'POST':
     # Get form values
