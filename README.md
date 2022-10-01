@@ -2,7 +2,7 @@
 
 <br>
 
-<img width="700" src="btre/static/img/mockup.png">
+<img width="900" src="btre/static/img/mockup.png">
 
 #
 
@@ -18,6 +18,7 @@
   - [User Stories](#user-stories)
   - [Scope](#scope)
   - [Structure](#structure)
+  - [Schema](#schema)
   - [Design Choices](#design-choices)
 - [Existing Features](#existing-features)
 - [Technologies Used](#technologies-used)
@@ -58,7 +59,7 @@ So, we have some dyniamic data on the about page as well.
 
 The featured listings page composes of several listings, which right now I have set to six per page. For each listing we have the main image, the price, and some other data. Clicking for more info takes us to the single listing page, where we have breadcrumbs, the title, at the top, the address, and the assigned realtor on the right of the page.
 So, realtors and listings have a relationship so that on the listings page we can access any of that particular realtor's information that we want. The idea is that each realtor is assigned certain listings.
-On the single listing page, below the main image we have some smaller images that open up in a lightbox. Lightbox 2 (https://lokeshdhakar.com/projects/lightbox2/) has been used for this.
+On the single listing page, below the main image we have some smaller images that open up in a lightbox. Lightbox 2 has been used for this.
 At the bottom we have some data like the sqft, the loft size, the price, description. Below the assigned realtor we have a 'make an inquiry' button: clicking on it opens up a module, and if the user is already registered and logged in from the front-facing website, the name and email sections of the module will be auto-populated from the database from that user.
 
 When registering for an account by filling all the required fields and then clicking on the register button, the user gets a little message. I have used Django messages for this, and formatted them with Bootstrap, and have also added a little bit of Javascript so the message disappears after three seconds.
@@ -146,6 +147,67 @@ In the system, there will be the following user functionalities:
 * Functionalities such as register, search and make an inquiry generate straighforward forms to allow useres to use the features without issues 
 
 #
+### **Schema**
+
+**Real Estate App Requirements**
+
+Front-end Pages
+
+- Home
+- About
+-	Listings
+-	Single Listing
+-	Search
+-	Register
+-	Login
+-	Dashboard (Inquiries)
+
+Design Specs
+
+-	Use BTRE logo (Frontend and admin)
+-	Branding colors – blue(#10284e) green(#30caa0)
+-	Mobile Friendly
+-	Social media icons & contact info
+-	Doesn’t have to be too fancy but must be clean
+
+Functionality Specs
+
+-	Manage listings, realtors, contact inquiries and website users via admin
+-	Role based users (staff and non-staff)
+-	Display listings in app with pagination
+-	Ability to set listings to unpublished
+-	Search listings by keyword, city, state, bedrooms and price (Homepage & search page)
+-	List realtors on about page with “seller of the month” (Control via admin)
+-	Listing page should have fields listed below
+-	Listing page should have 5 images with lightbox
+-	Lightbox should scroll through images
+-	Listing page should have a form to submit inquiry for that property listing
+-	Form info should go to database and notify realtor(s) with an email
+-	Frontend register/login to track inquiries
+-	Both unregistered and registered users can submit form. If registered, can only submit one per listing
+
+Listing Page Fields
+
+-	Title
+-	Address, city, state, zip
+-	Price
+-	Bedrooms
+-	Bathrooms
+-	Square Feet
+-	Lot Size
+-	Garage
+-	Listing Date
+-	Realtor – Name & Image
+-	Main image and other images
+
+Possible Future Functionalities
+
+-	Google maps on listing page
+-	Buyer testimonials
+-	Account settings to allow user to manage profile picture, name and password, and delete account
+
+
+#
 ### **Design Choices**
 
 * Colours
@@ -153,8 +215,10 @@ In the system, there will be the following user functionalities:
 The colour scheme was chosen based on the background image I wanted to use sitewide:
 I used [Coolors](https://coolors.co/) to generate a colour palette based on the image.
 
-
-[Main colours](https://coolors.co/palette/264653-2a9d8f-e9c46a-f4a261-e76f51)
+><details><summary
+[Show palette]</summary>
+(<img width="600" src="btre/static/img/admin_panel-2.png">)
+</details>
 
 
 * Pictures
