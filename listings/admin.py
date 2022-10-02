@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Listing
-from .models import Post
-from django_summernote.admin import SummernoteModelAdmin
+from .models import Comment
+
 
 class ListingAdmin(admin.ModelAdmin):
   list_display = ('id', 'title', 'is_published', 'price', 'list_date', 'realtor')
@@ -14,8 +14,13 @@ class ListingAdmin(admin.ModelAdmin):
 
 admin.site.register(Listing, ListingAdmin)
 
-@admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
 
-    summernote_fields = ('content',)
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'body', 'listing', 'created_on', 'approved')
+    list_filter = ('approved', 'created_on')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
 
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
