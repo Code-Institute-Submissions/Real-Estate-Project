@@ -100,13 +100,13 @@ The application's administrative functions are intended to manage what each user
 In the system, there will be the following user functionalities:
 
 - Admin: has permission in all areas of the system.
-- Users: can search for properties filtering through the featured listings using the search box, in addition to being able to make an inquiry for a listing they're interested in.
+- Users: can search for properties filtering through the featured listings using the search box, in addition to being able to make an inquiry for a listing they're interested in, and like and/or comment on a featured listing.
 
 ### **User Stories**
 
 **User**
-- As a Site User I can register an account so that I can
-- As a Site User I can login the application so that I can manage my account.
+- As a Site User I can register an account so that I can access my dashboard.
+- As a Site User I can log in the application so that I can manage my account.
 - As a Site User I can filter a listing according to its price so that I can choose the one that best suits my budget.
 - As a Site User I can filter a listing according to its number of bedrooms so that I can choose the one that fits on my needs.
 - As a Site User I can filter a listing according to its location so that I can choose the one that are of interest to me.
@@ -117,7 +117,7 @@ In the system, there will be the following user functionalities:
 - As a Site Admin I want to be able to access the admin area so that I can add/edit/remove realtors easily.
 - As a Site Admin I want to be able to access the admin area so that I can add/edit/remove users easily.
 - As a Site Admin I want to be able to access the admin area so that I can add/edit/remove contacts easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove posts easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove comments easily.
 
 **Developer**
 - As a Developer I want to ensure that all application features work as they were implemented to work.
@@ -282,7 +282,6 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 + Google Fonts: Google fonts are used to add fonts for aesthetic and UX purposes (https://fonts.google.com/)
 + Pillow: Python Imaging Library (https://pypi.org/project/Pillow/)
 + Cloudinary Platform: to host images (https://cloudinary.com/)
-+ Summernote (https://summernote.org/)
 
 #
 ## **Testing, Code Validation & Accessibility**

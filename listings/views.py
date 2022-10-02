@@ -1,31 +1,78 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
+from django.http import HttpResponseRedirect
 from .models import Listing
+from . forms import CommentForm
 
 
 def index(request):
-  listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-
-  paginator = Paginator(listings, 6)
-  page = request.GET.get('page')
-  paged_listings = paginator.get_page(page)
-
-  context = {
-    'listings': paged_listings
-  }
-
-  return render(request, 'listings/listings.html', context)
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+    
+    context = {
+      'listings': paged_listings
+    }
+    
+    return render(request, 'listings/listings.html', context)
 
 
 def listing(request, listing_id):
-  listing = get_object_or_404(Listing, pk=listing_id)
+    listing = get_object_or_404(Listing, pk=listing_id)
+    comments = listing.comments.filter(approved=True).order_by("-created_on")
+    liked = False
+    context = {
+      'listing': listing,
+      'comments': comments,
+      'commented': False,
+      'liked': liked,
+      'comment_form': CommentForm()
+    }
+    if listing.likes.filter(id=request.user.id).exists():
+      liked = True
+    
+    return render(request, 'listings/listing.html', context)
+   
 
-  context = {
-    'listing': listing
-  }
+def post(request, listing_id):
+    queryset = Listing.objects.filter(is_published=True)
+    listing = get_object_or_404(queryset)
+    comments = listing.comments.filter(approved=True).order_by("-created_on")
+    liked = False
+    context = {
+      'listing': listing,
+      'comments': comments,
+      'commented': True,
+      'liked': liked,
+      'comment_form': CommentForm()
+    }
+    if listing.likes.filter(id=request.user.id).exists():
+        liked = True
 
-  return render(request, 'listings/listing.html', context)
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.email = request.user.email
+            comment_form.instance.name = request.user.username
+            comment = comment_form.save(commit=False)
+            comment.listing = listing
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+        return render(request, 'listings/listing.html', context)
+  
+    
+def post(request, listing_id):
+    listing = get_object_or_404(Listing)
+    if listing.likes.filter(id=request.user.id).exists():
+        listing.likes.remove(request.user)
+    else:
+        listing.likes.add(request.user)
+
+    return HttpResponseRedirect(reverse('listings/listing.html'))
+          
 
 
 def search(request):
@@ -70,3 +117,5 @@ def search(request):
   }
 
   return render(request, 'listings/search.html', context)
+
+

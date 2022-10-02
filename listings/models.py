@@ -5,10 +5,9 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-STATUS = ((0, "Draft"), (1, "Published"))
 
 class Listing(models.Model):
-  status = models.IntegerField(choices=STATUS, default=0)  
+  
   realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
   title = models.CharField(max_length=200)
   address = models.CharField(max_length=200)

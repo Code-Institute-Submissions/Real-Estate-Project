@@ -1,11 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
 {% load humanize %}
 
-{% block title %} | {{ listing.title }} {% endblock %}
+{% load crispy_forms_tags %}
 
-{% block content %}
-<section id="showcase-inner" class="py-5 text-white">
+{% block title %} {% endblock %}
+
+
+  <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
@@ -133,8 +135,6 @@
                   <span class="float-right">{{ listing.realtor }}
                   </span>
                 </li>
-
-
               </ul>
             </div>
           </div>
@@ -152,59 +152,137 @@
             <div class="card-body">
               <h5 class="card-title">Property Realtor</h5>
               <h6 class="text-secondary">{{ listing.realtor }}</h6>
+              <div>
+                <strong>
+                  {% if user.is_authenticated %}
+                  <form class="d-inline" action="{% url 'listing_like' %}" method="POST">
+                      {% csrf_token %}
+                      {% if liked %}
+                      <button type="submit" class="btn-like"><i class="fas fa-heart"></i></button>
+                      {% else %}
+                      <button type="submit" class="btn-like"><i class="far fa-heart"></i></button>
+                      {% endif %}
+                  </form>
+                  {% else %}
+                  <span class="text-secondary"><i class="far fa-heart"></i></span>
+                  {% endif %}
+              <!-- The number of likes goes before the closing strong tag -->
+                  <span class="text-secondary">{{ listing.number_of_likes }}</span>
+                </strong>
+                {% with comments.count as total_comments %}
+                <strong>
+                  <span class="text-secondary"><i class="far fa-comments"></i></span>
+                  <span class="text-secondary">{{ total_comments }}</span>
+                </strong>
+                {% endwith %} 
             </div>
+                       
+        </div>
+            </div>
+            <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
           </div>
-          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+          
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Inquiry Modal -->
-  <div class="modal fade" id="inquiryModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
-          <button type="button" class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="{% url 'contact' %}" method="POST">
-            {% csrf_token %}
-            {% if user.is_authenticated %}
-              <input type="hidden" name="user_id" value="{{ user.id }}">
-            {% else %}
-              <input type="hidden" name="user_id" value="0">
-            {% endif %}
-            <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
-            <input type="hidden" name="listing_id" value="{{ listing.id }}">
-            <div class="form-group">
-              <label for="property_name" class="col-form-label">Property:</label>
-              <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
-            </div>
-            <div class="form-group">
-              <label for="name" class="col-form-label">Name:</label>
-              <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
-            </div>
-            <div class="form-group">
-              <label for="email" class="col-form-label">Email:</label>
-              <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
-            </div>
-            <div class="form-group">
-              <label for="phone" class="col-form-label">Phone:</label>
-              <input type="text" name="phone" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="message" class="col-form-label">Message:</label>
-              <textarea name="message" class="form-control"></textarea>
-            </div>
+                        
+    <div class="row">
+        <div class="col">
             <hr>
-            <input type="submit" value="Send" class="btn btn-block btn-secondary">
-          </form>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 ">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        <!-- The commenter's name goes here -->
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            <!-- The comment's created date goes here -->
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <!-- The body of the comment goes before the | -->
+                    {{ comment.body | linebreaks }}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                <!-- For later -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="listing" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Inquiry Modal -->
+<div class="modal fade" id="inquiryModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+          {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+          {% else %}
+            <input type="hidden" name="user_id" value="0">
+          {% endif %}
+          <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+          <input type="hidden" name="listing_id" value="{{ listing.id }}">
+          <div class="form-group">
+            <label for="property_name" class="col-form-label">Property:</label>
+            <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
+          </div>
+          <div class="form-group">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="col-form-label">Phone:</label>
+            <input type="text" name="phone" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="message" class="col-form-label">Message:</label>
+            <textarea name="message" class="form-control"></textarea>
+          </div>
+          <hr>
+          <input type="submit" value="Send" class="btn btn-block btn-secondary">
+        </form>
       </div>
     </div>
   </div>
+</div>
 {% endblock %}

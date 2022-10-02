@@ -73,6 +73,12 @@
                     <div class="col-6">
                       <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
                   </div>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="far fa-heart"></i> {{ listing.number_of_likes }}
+                      <i class="far fa-comments"></i> {{ total_comments }}
+                    </div>
+                  </div>
                   <hr>
                   <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
                 </div>
