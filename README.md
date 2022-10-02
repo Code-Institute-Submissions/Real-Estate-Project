@@ -104,25 +104,25 @@ In the system, there will be the following user functionalities:
 
 ### **User Stories**
 
-1. As a user, I should be able to:
-- Register for an account
-- Log in and out of the application
-- Submit an inquiry
-- Use the search box
-- Access the dashboard
+**User**
+- As a Site User I can register an account so that I can
+- As a Site User I can login the application so that I can manage my account.
+- As a Site User I can filter a listing according to its price so that I can choose the one that best suits my budget.
+- As a Site User I can filter a listing according to its number of bedrooms so that I can choose the one that fits on my needs.
+- As a Site User I can filter a listing according to its location so that I can choose the one that are of interest to me.
+- As a Site User I can view a listing's info so that I can read more about it and see more pictures of it.
 
-2. As a logged in user, I should be able to:
-- View submitted inquiries by clicking on the dashboard
-- Submit an inquiry
-- Use the search box
+**Admin**
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new listing easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new realtor easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new user easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new contact easily.
 
-2. As the admin, I should be able to:
-- Add/Edit/Delete Groups
-- Add/Edit/Delete Contacts
-- Add/Edit/Delete Realtors
-- Add/Edit/Delete Listings
-- Add/Edit/Delete Users
-- View all screens users can view as well
+**Developer**
+- As a Developer I want to ensure that all application features work as they were implemented to work.
+- As a Developer I want to ensure an authenticated user can access all required information correctly.
+- As a Developer I want to work together with the administrator of the site for improvements for the user of the same.
+
 
 #
 ### **Scope**

@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django.contrib.humanize',
-
-    'favourites'
 ]
 
 MIDDLEWARE = [
