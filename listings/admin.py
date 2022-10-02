@@ -1,7 +1,7 @@
 from django.contrib import admin
-
 from .models import Listing
-
+from .models import Post
+from django_summernote.admin import SummernoteModelAdmin
 
 class ListingAdmin(admin.ModelAdmin):
   list_display = ('id', 'title', 'is_published', 'price', 'list_date', 'realtor')
@@ -13,3 +13,9 @@ class ListingAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Listing, ListingAdmin)
+
+@admin.register(Post)
+class PostAdmin(SummernoteModelAdmin):
+
+    summernote_fields = ('content',)
+

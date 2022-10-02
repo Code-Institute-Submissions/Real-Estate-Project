@@ -113,10 +113,11 @@ In the system, there will be the following user functionalities:
 - As a Site User I can view a listing's info so that I can read more about it and see more pictures of it.
 
 **Admin**
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new listing easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new realtor easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new user easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove a new contact easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove listings easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove realtors easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove users easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove contacts easily.
+- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove posts easily.
 
 **Developer**
 - As a Developer I want to ensure that all application features work as they were implemented to work.
@@ -281,6 +282,7 @@ All images (background, listings, realtors) have been downloaded from [Pexels](h
 + Google Fonts: Google fonts are used to add fonts for aesthetic and UX purposes (https://fonts.google.com/)
 + Pillow: Python Imaging Library (https://pypi.org/project/Pillow/)
 + Cloudinary Platform: to host images (https://cloudinary.com/)
++ Summernote (https://summernote.org/)
 
 #
 ## **Testing, Code Validation & Accessibility**
