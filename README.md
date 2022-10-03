@@ -62,6 +62,9 @@ So, realtors and listings have a relationship so that on the listings page we ca
 On the single listing page, below the main image we have some smaller images that open up in a lightbox. Lightbox 2 has been used for this.
 At the bottom we have some data like the sqft, the loft size, the price, description. Below the assigned realtor we have a 'make an inquiry' button: clicking on it opens up a module, and if the user is already registered and logged in from the front-facing website, the name and email sections of the module will be auto-populated from the database from that user.
 
+Also, at the bottom of every single listing page, I have added a comment section: if user is authenticated, they will be allowed to comment and take part to the conversation, while a user whose not logged in the website or not registered yet won't have acces to the comment box, but will only be able to see the comments that have been submitted for a listing.
+The same goes for the like/unlike functionality: logged in users will be allowed to like or unlike a listing by clicking on the little heart button on the right side of a listing's page, just below the assigned realtor, while unlogged users will only be able to view the listing's likes.
+
 When registering for an account by filling all the required fields and then clicking on the register button, the user gets a little message. I have used Django messages for this, and formatted them with Bootstrap, and have also added a little bit of Javascript so the message disappears after three seconds.
 I didn't want the user to be direclty logged in after registering, but being redirected to the login page instead. Logging in takes the user to a dashboard, that is basically just a list of any inquiries that they have made.
 
@@ -105,19 +108,23 @@ In the system, there will be the following user functionalities:
 ### **User Stories**
 
 **User**
-- As a Site User I can register an account so that I can access my dashboard.
+- As a Site User I can register an account so that I can access my dashboard, comment and like.
+- As a Site User I can leave comments on a listing so that I can be involved in the conversation.
 - As a Site User I can log in the application so that I can manage my account.
 - As a Site User I can filter a listing according to its price so that I can choose the one that best suits my budget.
 - As a Site User I can filter a listing according to its number of bedrooms so that I can choose the one that fits on my needs.
 - As a Site User I can filter a listing according to its location so that I can choose the one that are of interest to me.
-- As a Site User I can view a listing's info so that I can read more about it and see more pictures of it.
-
+- As a Site User I can view a list of featured listings so that I can select one to read more info about.
+- As a Site User I can view the number of likes on each listing so that I can see which is the most popular.
+- As a Site User I can view comments on an individual post so that I can read the conversation.
+- As a Site User I can like or unlike a post so that I can interact with the content.
 **Admin**
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove listings easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove realtors easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove users easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove contacts easily.
-- As a Site Admin I want to be able to access the admin area so that I can add/edit/remove comments easily.
+- As a Site Admin I can create, read, update and delete listings so that I can manage my website content. 
+- As a Site Admin I can create, read, update and delete comments so that I can manage my website content.
+- As a Site Admin I can create, read, update and delete realtors so that I can manage my website content.
+- As a Site Admin I can create, read, update and delete users so that I can manage my website content.
+- As a Site Admin I can create, read, update and delete contacts so that I can manage my website content.
+- As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments.
 
 **Developer**
 - As a Developer I want to ensure that all application features work as they were implemented to work.

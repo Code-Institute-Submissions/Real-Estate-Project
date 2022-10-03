@@ -3,7 +3,8 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .choices import price_choices, bedroom_choices, state_choices
 from django.http import HttpResponseRedirect
 from .models import Listing
-from . forms import CommentForm
+from .forms import CommentForm
+from django.views import View
 
 
 def index(request):
@@ -19,59 +20,64 @@ def index(request):
     return render(request, 'listings/listings.html', context)
 
 
-def listing(request, listing_id):
-    listing = get_object_or_404(Listing, pk=listing_id)
-    comments = listing.comments.filter(approved=True).order_by("-created_on")
-    liked = False
-    context = {
-      'listing': listing,
-      'comments': comments,
-      'commented': False,
-      'liked': liked,
-      'comment_form': CommentForm()
-    }
-    if listing.likes.filter(id=request.user.id).exists():
-      liked = True
+class ListingDetail(View):
+  
+  def listing(self, request, slug, *args, **kwargs):
+      queryset = Listing.objects.filter(is_published=True)
+      listing = get_object_or_404(queryset, slug=slug)
+      comments = listing.comments.filter(approved=True).order_by("-created_on")
+      liked = False
+      context = {
+        'listing': listing,
+        'comments': comments,
+        'commented': False,
+        'liked': liked,
+        'comment_form': CommentForm()
+        }
+      if listing.likes.filter(id=self.request.user.id).exists():
+        liked = True
     
-    return render(request, 'listings/listing.html', context)
+      return render(request, 'listings/listing.html', context)
    
 
-def post(request, listing_id):
-    queryset = Listing.objects.filter(is_published=True)
-    listing = get_object_or_404(queryset)
-    comments = listing.comments.filter(approved=True).order_by("-created_on")
-    liked = False
-    context = {
-      'listing': listing,
-      'comments': comments,
-      'commented': True,
-      'liked': liked,
-      'comment_form': CommentForm()
-    }
-    if listing.likes.filter(id=request.user.id).exists():
+  def post(self, request, slug, *args, **kwargs):
+      queryset = Listing.objects.filter(is_published=True)
+      listing = get_object_or_404(queryset, slug=slug)
+      comments = listing.comments.filter(approved=True).order_by("-created_on")
+      liked = False
+      context = {
+        'listing': listing,
+        'comments': comments,
+        'commented': True,
+        'liked': liked,
+        'comment_form': comment_form
+        }
+      if listing.likes.filter(id=self.request.user.id).exists():
         liked = True
 
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
-            comment = comment_form.save(commit=False)
-            comment.listing = listing
-            comment.save()
-        else:
-            comment_form = CommentForm()
+      comment_form = CommentForm(data=request.POST)
+      if comment_form.is_valid():
+        comment_form.instance.email = request.user.email
+        comment_form.instance.name = request.user.username
+        comment = comment_form.save(commit=False)
+        comment.listing = listing
+        comment.save()
+      else:
+        comment_form = CommentForm()
 
-        return render(request, 'listings/listing.html', context)
-  
-    
-def post(request, listing_id):
-    listing = get_object_or_404(Listing)
+      return render(request, 'listings/listing.html', context)
+
+
+class ListingLike(View):
+      
+  def post(self, request, slug, *args, **kwargs):
+    listing = get_object_or_404(Listing, slug=slug)
     if listing.likes.filter(id=request.user.id).exists():
-        listing.likes.remove(request.user)
+      listing.likes.remove(request.user)
     else:
-        listing.likes.add(request.user)
+      listing.likes.add(request.user)
 
-    return HttpResponseRedirect(reverse('listings/listing.html'))
+    return HttpResponseRedirect(reverse('listings/listing.html', args=[slug]))
           
 
 

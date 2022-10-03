@@ -3,7 +3,8 @@ from .models import Listing, Comment
 
 
 class ListingAdmin(admin.ModelAdmin):
-  list_display = ('id', 'title', 'is_published', 'price', 'list_date', 'realtor')
+  
+  list_display = ('id', 'title', 'slug', 'status', 'is_published', 'price', 'list_date', 'realtor')
   list_display_links = ('id', 'title')
   list_filter = ('realtor', 'likes')
   search_fields = ('title', 'description', 'address', 'city', 'state', 'zipcode', 'price')
@@ -13,7 +14,7 @@ class ListingAdmin(admin.ModelAdmin):
 admin.site.register(Listing, ListingAdmin)
 
 
-@admin.register(Comment)
+
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'body', 'listing', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
@@ -22,3 +23,5 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+admin.site.register(Comment)

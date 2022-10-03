@@ -155,16 +155,17 @@
               <div>
                 <strong>
                   {% if user.is_authenticated %}
-                  <form class="d-inline" action="{% url 'listing_like' %}" method="POST">
+                  <form class="d-inline" action="{% url 'listing_like' listing.slug %}
+                  " method="POST">
                       {% csrf_token %}
                       {% if liked %}
-                      <button type="submit" class="btn-like"><i class="fas fa-heart"></i></button>
+                      <button type="submit" name="listing_id" value="{{listing.slug}}" class="btn-secondary"><i class="fas fa-heart"></i></button>
                       {% else %}
-                      <button type="submit" class="btn-like"><i class="far fa-heart"></i></button>
+                      <button type="submit" name="listing_id" value="{{lisitng.slug}}" class="btn-secondary"><i class="far fa-heart"></i></button>
                       {% endif %}
                   </form>
                   {% else %}
-                  <span class="text-secondary"><i class="far fa-heart"></i></span>
+                  <span class="btn-secondary"><i class="far fa-heart"></i></span>
                   {% endif %}
               <!-- The number of likes goes before the closing strong tag -->
                   <span class="text-secondary">{{ listing.number_of_likes }}</span>
@@ -175,8 +176,7 @@
                   <span class="text-secondary">{{ total_comments }}</span>
                 </strong>
                 {% endwith %} 
-            </div>
-                       
+            </div>                   
         </div>
             </div>
             <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
