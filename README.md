@@ -118,6 +118,7 @@ In the system, there will be the following user functionalities:
 - As a Site User I can view the number of likes on each listing so that I can see which is the most popular.
 - As a Site User I can view comments on an individual post so that I can read the conversation.
 - As a Site User I can like or unlike a post so that I can interact with the content.
+
 **Admin**
 - As a Site Admin I can create, read, update and delete listings so that I can manage my website content. 
 - As a Site Admin I can create, read, update and delete comments so that I can manage my website content.
